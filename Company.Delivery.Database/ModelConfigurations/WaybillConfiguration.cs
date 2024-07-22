@@ -11,5 +11,12 @@ internal class WaybillConfiguration : IEntityTypeConfiguration<Waybill>
         // TODO: все строковые свойства должны иметь ограничение на длину
         // TODO: должно быть ограничение на уникальность свойства Waybill.Number
         // TODO: ApplicationDbContextTests должен выполняться без ошибок
+
+        builder.Property(w => w.Number)
+       .HasMaxLength(50)
+       .IsRequired();
+
+        builder.HasIndex(w => w.Number)
+            .IsUnique();
     }
 }
