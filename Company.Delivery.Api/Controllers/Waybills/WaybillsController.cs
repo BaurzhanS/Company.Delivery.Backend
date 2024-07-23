@@ -154,7 +154,7 @@ public class WaybillsController : ControllerBase
         catch (EntityNotFoundException)
         {
             return NotFound();
-        };
+        }
     }
 
     /// <summary>

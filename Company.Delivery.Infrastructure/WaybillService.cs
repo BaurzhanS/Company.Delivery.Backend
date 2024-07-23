@@ -118,10 +118,10 @@ public class WaybillService : IWaybillService
         return waybillDto;
     }
 
-    public Task DeleteByIdAsync(Guid id, CancellationToken cancellationToken)
+    public async Task DeleteByIdAsync(Guid id, CancellationToken cancellationToken)
     {
         // TODO: Если сущность не найдена по идентификатору, кинуть исключение типа EntityNotFoundException
 
-        throw new NotImplementedException();
+        await _waybillRepository.DeleteByIdAsync(id, cancellationToken);
     }
 }
