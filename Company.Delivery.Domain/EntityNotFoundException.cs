@@ -1,3 +1,3 @@
 ﻿namespace Company.Delivery.Domain;
 
-public class EntityNotFoundException : Exception {}
+public class EntityNotFoundException : Exception { }

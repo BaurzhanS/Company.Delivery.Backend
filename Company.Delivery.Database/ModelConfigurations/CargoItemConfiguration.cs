@@ -18,7 +18,7 @@ internal class CargoItemConfiguration : IEntityTypeConfiguration<CargoItem>
         builder.Property(c => c.Number)
             .HasMaxLength(500);
 
-        builder.HasIndex(c => new { c.Number, c.Waybill })
+        builder.HasIndex(c => new { c.Number })
             .IsUnique();
 
         builder.HasOne(c => c.Waybill)

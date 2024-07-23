@@ -13,9 +13,17 @@ namespace Company.Delivery.Database.Repos
         }
         public async Task<Waybill> CreateAsync(Waybill waybill, CancellationToken cancellationToken)
         {
-            await _dbContext.Waybills.AddAsync(waybill, cancellationToken);
-            await _dbContext.SaveChangesAsync(cancellationToken);
-            return waybill;
+            try
+            {
+                await _dbContext.Waybills.AddAsync(waybill, cancellationToken);
+                await _dbContext.SaveChangesAsync(cancellationToken);
+                return waybill;
+            }
+            catch (Exception ex)
+            {
+                var t = ex.Message;
+                throw;
+            }
         }
         public async Task DeleteByIdAsync(Guid id, CancellationToken cancellationToken)
         {

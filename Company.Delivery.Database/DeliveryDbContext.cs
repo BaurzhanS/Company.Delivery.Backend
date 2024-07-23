@@ -1,4 +1,5 @@
 ﻿using Company.Delivery.Core;
+using Company.Delivery.Database.ModelConfigurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace Company.Delivery.Database;
@@ -16,6 +17,7 @@ public class DeliveryDbContext : DbContext
         base.OnModelCreating(modelBuilder);
 
         // TODO: регистрация всех реализаций IEntityTypeConfiguration в сборке Company.Delivery.Database
-        throw new NotImplementedException();
+        modelBuilder.ApplyConfiguration(new WaybillConfiguration());
+        modelBuilder.ApplyConfiguration(new CargoItemConfiguration());
     }
 }
